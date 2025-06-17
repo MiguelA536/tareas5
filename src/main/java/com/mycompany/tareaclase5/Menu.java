@@ -32,7 +32,9 @@ public class Menu {
                         apg1.ejecutar2();
                         break;
                     case 2:
-
+                        System.out.println("E");
+                        AppArbol aA1 = new AppArbol();
+                        //aA1.ejecutar();
                         break;
                     case 3:
                         System.out.println("Hasta luego");
