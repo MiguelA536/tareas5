@@ -13,7 +13,8 @@ public class TareaClase5 {
     public static void main(String[] args) {
         System.out.println("El siguiente programa muestra un ejemplo de grafo y uno de arbol binario");
         Menu m1 = new Menu();
+        m1.ejecutar();
     }
 }
 
-//Rama develop
+//Rama miguel
