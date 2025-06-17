@@ -12,20 +12,27 @@ import java.util.*;
  */
 public class AppArbol {
     ArbolBinario ab1 = new ArbolBinario();
-    Scanner entrada = new Scanner(System.in);
+    Scanner entrada;
 
-    public void ejecutar1() {
-        System.out.println("Árbol Binario: insertar 7 valores (ej. 50 30 40 50 60 70)");
+    AppArbol(Scanner entrada) {
+        this.entrada = entrada;
+    }
 
-        for (int i = 0; i < 7; i++) {
-            System.out.println("Valor " + (i + 1) + ": ");
-            int valor = entrada.nextInt();
+    public void ejecutar1(){
+        System.out.println("Árbol Binario: insertar 7 nombre(s)");
+        for(int i = 0; i < 7; i++) {
+            System.out.print("Valor " + (i+1) + ": ");
+            String valor = entrada.nextLine();
             ab1.insertar(valor);
         }
 
         System.out.println("\n=== Recorridos del árbol ===");
+
         ab1.inorden();
         ab1.preorden();
         ab1.postorden();
     }
 }
+
+
+

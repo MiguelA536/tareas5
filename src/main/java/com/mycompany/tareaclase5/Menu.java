@@ -11,43 +11,46 @@ import java.util.*;
  */
 public class Menu {
 
+    // Dentro de Menu:
+
+    private Scanner entrada = new Scanner(System.in);
+
     public void ejecutar() {
-        Scanner entrada = new Scanner(System.in);
-        int opcion;
+        int opcion = 0;
 
         do {
+            System.out.println("\n__Aquí están las actividades de hoy__");
 
-            System.out.println("\n__Aquí estan las actividades de hoy__");
-            System.out.println("1.- Para ver lo relacionado al grafo alfabético");
-            System.out.println("2.- Para ver el programa relacionado al arbol binario");
-            System.out.println("3 para salir");
+            System.out.println("1.- Para el Grafo.");
+            System.out.println("2.- Árbol.");
+            System.out.println("3.- Salir.");
 
             try {
-                opcion = entrada.nextInt();
+                opcion = Integer.parseInt(entrada.nextLine()); // leer como línea y parsear
                 switch (opcion) {
                     case 1:
-                        System.out.println("El arbol alfabético no necesita un destino, ya que ordenará los elementos de manera alfabética");
-                        System.out.println("La relación que hay el su propio orden alfabético");
-                        AppGrafo apg1 = new AppGrafo();
-                        apg1.ejecutar2();
+                        AppGrafo apg = new AppGrafo();
+                        apg.ejecutar2();
                         break;
+
                     case 2:
-                        System.out.println("E");
-                        AppArbol aA1 = new AppArbol();
-                        aA1.ejecutar1();
+                        AppArbol aA = new AppArbol(entrada);
+                        aA.ejecutar1();
                         break;
+
                     case 3:
-                        System.out.println("Hasta luego");
+                        System.out.println("Hasta luego.");
                         break;
 
                     default:
-                        System.out.println("Opción no válida.");
+                        System.out.println("Valor no válido.");
                 }
-            } catch (InputMismatchException e) {
-                System.out.println("Debes ingresar un número entero.");
-                entrada.next();
-                opcion = 0;
+            } catch (NumberFormatException e) {
+                System.out.println("Valor no válido.");
             }
         } while (opcion != 3);
+
+        entrada.close();
     }
+
 }
