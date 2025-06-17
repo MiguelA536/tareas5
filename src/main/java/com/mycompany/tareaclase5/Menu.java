@@ -21,8 +21,8 @@ public class Menu {
         do {
             System.out.println("\n__Aquí están las actividades de hoy__");
 
-            System.out.println("1.- Para el Grafo.");
-            System.out.println("2.- Árbol.");
+            System.out.println("1.- Para el Grafo que ordena los vertices de forma alfabética");
+            System.out.println("2.- Árbol Binario que acomoda los elementos según cada caso");
             System.out.println("3.- Salir.");
 
             try {

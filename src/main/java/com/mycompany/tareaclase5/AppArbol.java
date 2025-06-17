@@ -29,7 +29,9 @@ public class AppArbol {
         System.out.println("\n=== Recorridos del árbol ===");
 
         ab1.inorden();
+        System.out.println("\n");
         ab1.preorden();
+        System.out.println("\n");
         ab1.postorden();
     }
 }

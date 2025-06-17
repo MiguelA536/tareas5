@@ -40,7 +40,7 @@ public class ArbolBinario {
     private void inordenRec(Nodo nodo){
         if (nodo != null){
             inordenRec(nodo.izquierda);
-            System.out.print(nodo.valor + " ");
+            System.out.print(nodo.valor + "   ");
             inordenRec(nodo.derecha);
         }
     }
@@ -54,7 +54,7 @@ public class ArbolBinario {
 
     private void preordenRec(Nodo nodo){
         if (nodo != null){
-            System.out.print(nodo.valor + " ");
+            System.out.print(nodo.valor + "   ");
             preordenRec(nodo.izquierda);
             preordenRec(nodo.derecha);
         }
@@ -71,7 +71,7 @@ public class ArbolBinario {
         if (nodo != null){
             postordenRec(nodo.izquierda);
             postordenRec(nodo.derecha);
-            System.out.print(nodo.valor + " ");
+            System.out.print(nodo.valor + "   ");
         }
     }
 }
