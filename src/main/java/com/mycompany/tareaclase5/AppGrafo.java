@@ -10,27 +10,40 @@ import java.util.*;
  * @author migue
  */
 public class AppGrafo {
+
     Grafo grafo = new Grafo();
     Scanner sc = new Scanner(System.in);
-    
-    public void ejecutar2(){
-        System.out.println("Grafo dirigido: Agregar conexiones entre nodos");
 
-        System.out.println("¿Cuántas aristas deseas agregar?");
-
+    public void ejecutar2() {
+        System.out.println("Ingrese cuántos vértices deseas agregar:");
         int n = sc.nextInt();
         sc.nextLine();
 
-        for (int i = 0; i < n; i++){
-            System.out.println("Origen: ");
-            String origen = sc.nextLine();
-            System.out.println("Destino: ");
-            String destino = sc.nextLine();
-
-            grafo.agregarArista(origen, destino);
+        List<String> nombreVertices = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            System.out.print("Ingrese nombre del vértice " + (i + 1) + ": ");
+            System.out.println("Preferentemente ingrese la primer letra Mayúscula con fines estéticos");
+            nombreVertices.add(sc.nextLine().trim()); //Eliminar espacios
         }
 
-        System.out.println("\n=== Resultado del grafo ===");
+        // Ordenamos alfabéticamente sin considerar mayúsculas
+        Collections.sort(nombreVertices, String.CASE_INSENSITIVE_ORDER);
+
+        // Agregamos vértice y arista hacia el siguiente
+        for (int i = 0; i < nombreVertices.size(); i++) {
+            String origen = nombreVertices.get(i);
+            grafo.agregarVertice(origen);
+            if (i < nombreVertices.size() - 1) {
+                String destino = nombreVertices.get(i + 1);
+                grafo.agregarArista(origen, destino);
+            }
+        }
+
+        System.out.println("\n=== Resultado del Grafo ===");
+
+        // Finalmente lo mostramos
         grafo.mostrar();
     }
+
+
 }

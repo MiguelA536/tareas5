@@ -11,10 +11,11 @@ import java.util.*;
  * @author migue
  */
 public class Grafo {
-        private Map<String, List<String>> adyacencias;
+
+    private Map<String, List<String>> adyacencias;
 
     public Grafo(){
-        adyacencias = new HashMap<>();
+        adyacencias = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
     }
 
     public void agregarVertice(String vertice){
@@ -22,27 +23,22 @@ public class Grafo {
     }
 
     public void agregarArista(String origen, String destino){
-        if (!adyacencias.containsKey(origen)){
+        if (!adyacencias.containsKey(origen)) {
             agregarVertice(origen);
         }
-        if(!adyacencias.containsKey(destino)){
+        if (!adyacencias.containsKey(destino)) {
             agregarVertice(destino);
         }
-        adyacencias.get(origen).add(destino); //Solo una dirección (grafo dirigido)
+        adyacencias.get(origen).add(destino);
     }
 
-    public void mostrar() {
+    public void mostrar(){
         System.out.println("Grafo dirigido:");
-        // Creamos una lista de las claves y las ordenamos
-        List<String> vertices = new ArrayList<>(adyacencias.keySet());
-        Collections.sort(vertices);
-
-        // Recorremos cada vértice ya ordenado
-        for (String vertice : vertices) {
+        for (String vertice : adyacencias.keySet()) {
             List<String> adyacente = adyacencias.get(vertice);
-            Collections.sort(adyacente);
+            adyacente.sort(String.CASE_INSENSITIVE_ORDER);
             System.out.println("- " + vertice + " -> " + adyacente);
         }
     }
-
 }
+
